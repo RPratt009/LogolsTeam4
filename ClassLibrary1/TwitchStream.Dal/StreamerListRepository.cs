@@ -8,7 +8,7 @@ namespace TwitchStream.Dal
 {
     public class AnswerRepository : Repository
     {
-        public int Insert(Answer answer)
+        public int Insert(Answe r answer)
         {
             using (IDbConnection dbConnection = Connection)
             {
