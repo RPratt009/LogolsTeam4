@@ -4,34 +4,30 @@ using System.Linq;
 using Assessment.Entities;
 using Dapper;
 
+/*AddUserLogin
+UpdateUserLogin
+GetUserWithCredentials
+GetUser*/
+
 namespace TwitchStream.Dal
 {
-    public class AnswerRepository : Repository
+    public class UserLoginRepository : Repository
     {
-        public int Insert(Answer answer)
+        public int Insert(UserLogin answer)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<InsertID>("Assess.InsertAnswer", answer, commandType: CommandType.StoredProcedure).First().ID;
+                return dbConnection.Query<InsertID>("Assess.AddUserLogin", answer, commandType: CommandType.StoredProcedure).First().ID;
             }
         }
 
-        public void Delete(Answer answer)
+        public void Update(UserLogin answer)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("Assess.DeleteAnswer", answer, commandType: CommandType.StoredProcedure);
-            }
-        }
-
-        public void Update(Answer answer)
-        {
-            using (IDbConnection dbConnection = Connection)
-            {
-                dbConnection.Open();
-                dbConnection.Execute("Assess.UpdateAnswer", answer, commandType: CommandType.StoredProcedure);
+                dbConnection.Execute("Assess.UpdateUserLogin", answer, commandType: CommandType.StoredProcedure);
             }
         }
 
@@ -40,7 +36,7 @@ namespace TwitchStream.Dal
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<Answer>("Assess.GetAnswer", new { AnswerID = answerID }, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                return dbConnection.Query<Answer>("Assess.GetUserWithCredentials", new { AnswerID = answerID }, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
 
@@ -49,7 +45,7 @@ namespace TwitchStream.Dal
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<Answer>("Assess.GetAllAnswers", commandType: CommandType.StoredProcedure);
+                return dbConnection.Query<Answer>("Assess.GetUser", commandType: CommandType.StoredProcedure);
             }
         }
     }

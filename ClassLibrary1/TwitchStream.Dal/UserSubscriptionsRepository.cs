@@ -4,53 +4,41 @@ using System.Linq;
 using Assessment.Entities;
 using Dapper;
 
+/*AddSubscription
+DeleteSubscription
+UpdateSubscription */
+
 namespace TwitchStream.Dal
 {
-    public class AnswerRepository : Repository
+    public class UserSubscriptionsRepository : Repository
     {
-        public int Insert(Answer answer)
+        public int Insert(UserSubscriptions sub)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<InsertID>("Assess.InsertAnswer", answer, commandType: CommandType.StoredProcedure).First().ID;
+                return dbConnection.Query<InsertID>("Assess.AddSubscription", sub, commandType: CommandType.StoredProcedure).First().ID;
             }
         }
 
-        public void Delete(Answer answer)
+        public void Delete(UserSubscriptions sub)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("Assess.DeleteAnswer", answer, commandType: CommandType.StoredProcedure);
+                dbConnection.Execute("Assess.DeleteSubscription", sub, commandType: CommandType.StoredProcedure);
             }
         }
 
-        public void Update(Answer answer)
+        public void Update(UserSubscriptions sub)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("Assess.UpdateAnswer", answer, commandType: CommandType.StoredProcedure);
+                dbConnection.Execute("Assess.UpdateSubscription", sub, commandType: CommandType.StoredProcedure);
             }
         }
 
-        public Answer Get(int answerID)
-        {
-            using (IDbConnection dbConnection = Connection)
-            {
-                dbConnection.Open();
-                return dbConnection.Query<Answer>("Assess.GetAnswer", new { AnswerID = answerID }, commandType: CommandType.StoredProcedure).FirstOrDefault();
-            }
-        }
-
-        public IEnumerable<Answer> GetAll()
-        {
-            using (IDbConnection dbConnection = Connection)
-            {
-                dbConnection.Open();
-                return dbConnection.Query<Answer>("Assess.GetAllAnswers", commandType: CommandType.StoredProcedure);
-            }
-        }
+       
     }
 }
