@@ -20,7 +20,7 @@ namespace TwitchStream.Dal
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<InsertID>("Assess.AddStreamer", answer, commandType: CommandType.StoredProcedure).First().ID;
+                return dbConnection.Query<InsertID>("team4.AddStreamer", answer, commandType: CommandType.StoredProcedure).First().ID;
             }
         }
 
@@ -29,7 +29,7 @@ namespace TwitchStream.Dal
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("Assess.UpdateStreamerOnline", answer, commandType: CommandType.StoredProcedure);
+                dbConnection.Execute("team4.UpdateStreamerOnline", answer, commandType: CommandType.StoredProcedure);
             }
         }
         public void Update(Answer answer)
@@ -37,7 +37,7 @@ namespace TwitchStream.Dal
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("Assess.UpdateStreamer", answer, commandType: CommandType.StoredProcedure);
+                dbConnection.Execute("team4.UpdateStreamer", answer, commandType: CommandType.StoredProcedure);
             }
         }
 
@@ -46,7 +46,7 @@ namespace TwitchStream.Dal
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<Answer>("Assess.GetStreamer", new { AnswerID = answerID }, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                return dbConnection.Query<Answer>("team4.GetStreamer", new { AnswerID = answerID }, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
         public Answer Get(int answerID)
@@ -54,7 +54,7 @@ namespace TwitchStream.Dal
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<Answer>("Assess.GetStreamerWithChannel", new { AnswerID = answerID }, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                return dbConnection.Query<Answer>("team4.GetStreamerWithChannel", new { AnswerID = answerID }, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
 

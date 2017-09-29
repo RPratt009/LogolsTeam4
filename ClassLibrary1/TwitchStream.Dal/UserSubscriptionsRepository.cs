@@ -17,7 +17,7 @@ namespace TwitchStream.Dal
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<InsertID>("Assess.AddSubscription", sub, commandType: CommandType.StoredProcedure).First().ID;
+                return dbConnection.Query<InsertID>("team4.AddSubscription", sub, commandType: CommandType.StoredProcedure).First().ID;
             }
         }
 
@@ -26,7 +26,7 @@ namespace TwitchStream.Dal
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("Assess.DeleteSubscription", sub, commandType: CommandType.StoredProcedure);
+                dbConnection.Execute("team4.DeleteSubscription", sub, commandType: CommandType.StoredProcedure);
             }
         }
 
@@ -35,7 +35,7 @@ namespace TwitchStream.Dal
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("Assess.UpdateSubscription", sub, commandType: CommandType.StoredProcedure);
+                dbConnection.Execute("team4.UpdateSubscription", sub, commandType: CommandType.StoredProcedure);
             }
         }
 
