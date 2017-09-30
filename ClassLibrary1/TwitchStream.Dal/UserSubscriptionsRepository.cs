@@ -3,6 +3,7 @@ using System.Data;
 using System.Linq;
 using TwitchStream.Entities;
 using Dapper;
+using Assessment.Entities;
 
 /*AddSubscription
 DeleteSubscription
