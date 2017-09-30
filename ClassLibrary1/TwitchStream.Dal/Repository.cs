@@ -12,7 +12,7 @@ namespace TwitchStream.Dal
 
             public Repository()
             {
-                connectionString = @"Data Source=logolsdb.database.windows.net;Initial Catalog=LogolsLearning;Persist Security Info=True;User ID=Team4;Password=logolsteam#4";
+                connectionString = @"Data Source=logolsdb.database.windows.net;Initial Catalog=LogolsLearning;Persist Security Info=True;User ID=;Password=";
             }
 
             public IDbConnection Connection
