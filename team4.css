@@ -1,0 +1,18 @@
+header{
+	background-color: #66CCFF;
+	color: black;
+	text-align: center;
+	font-family: Brush Script MT;
+	font-size: 40px;
+}
+#nav ul{
+	text-align: right;
+	
+}
+body{
+	background-color: #9E9E9E;
+}
+footer{
+	background-color: #66CCFF;
+	text-align: right;
+}
