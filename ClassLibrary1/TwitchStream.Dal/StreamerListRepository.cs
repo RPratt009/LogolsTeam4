@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using Assessment.Entities;
+using TwitchStream.Entities;
 using Dapper;
 
 /*AddStreamer
@@ -15,7 +15,7 @@ namespace TwitchStream.Dal
 {
     public class StreamerListRepository : Repository
     {
-        public int Insert(AddStreamer AddStreamer)
+        public int Insert(StreamerList AddStreamer)
         {
             using (IDbConnection dbConnection = Connection)
             {
@@ -24,7 +24,7 @@ namespace TwitchStream.Dal
             }
         }
 
-        public void Update(Answer answer)
+        public void Update(StreamerList answer)
         {
             using (IDbConnection dbConnection = Connection)
             {
@@ -32,7 +32,7 @@ namespace TwitchStream.Dal
                 dbConnection.Execute("team4.UpdateStreamerOnline", answer, commandType: CommandType.StoredProcedure);
             }
         }
-        public void Update(Answer answer)
+        public void Update(StreamerList answer)
         {
             using (IDbConnection dbConnection = Connection)
             {
@@ -41,7 +41,7 @@ namespace TwitchStream.Dal
             }
         }
 
-        public Answer Get(int answerID)
+        public StreamerList Get(int answerID)
         {
             using (IDbConnection dbConnection = Connection)
             {
@@ -49,7 +49,7 @@ namespace TwitchStream.Dal
                 return dbConnection.Query<Answer>("team4.GetStreamer", new { AnswerID = answerID }, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
-        public Answer Get(int answerID)
+        public StreamerList Get(int answerID)
         {
             using (IDbConnection dbConnection = Connection)
             {

@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwitchStream.Entities", "ClassLibrary1\TwitchStream.Entities.csproj", "{AF1A1E43-52F7-43C0-BFE8-097629A77948}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchStream.Dal", "TwitchStream.Dal\TwitchStream.Dal.csproj", "{C4A4E151-6E67-4A1F-A058-95A19A280B7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwitchStream.Dal", "TwitchStream.Dal\TwitchStream.Dal.csproj", "{C4A4E151-6E67-4A1F-A058-95A19A280B7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
