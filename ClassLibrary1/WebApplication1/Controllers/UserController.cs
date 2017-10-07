@@ -23,7 +23,7 @@ namespace WebApplication1.Controllers
         [HttpGet("{username,password}")]
         public TwitchStream.Entities.UserLogin Get(string username,string password)
         {
-            return _service.Get();
+            return _service.Get(username,password);
         }
 
         // GET api/values/5
