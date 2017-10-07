@@ -12628,11 +12628,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\rpratt\\Documents\\GitHub\\LogolsTeam4\\ClassLibrary1\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "C:\\Users\\rpratt\\Source\\Repos\\LogolsTeam4\\ClassLibrary1\\WebApplication1\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "C:\\Users\\rpratt\\Documents\\GitHub\\LogolsTeam4\\ClassLibrary1\\WebApplication1\\WebApplication1.csproj",
+      "projectPath": "C:\\Users\\rpratt\\Source\\Repos\\LogolsTeam4\\ClassLibrary1\\WebApplication1\\WebApplication1.csproj",
       "packagesPath": "C:\\Users\\rpratt\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rpratt\\Documents\\GitHub\\LogolsTeam4\\ClassLibrary1\\WebApplication1\\obj\\",
+      "outputPath": "C:\\Users\\rpratt\\Source\\Repos\\LogolsTeam4\\ClassLibrary1\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12651,11 +12651,11 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\rpratt\\Documents\\GitHub\\LogolsTeam4\\ClassLibrary1\\TwitchStream.Dal\\TwitchStream.Dal.csproj": {
-              "projectPath": "C:\\Users\\rpratt\\Documents\\GitHub\\LogolsTeam4\\ClassLibrary1\\TwitchStream.Dal\\TwitchStream.Dal.csproj"
+            "C:\\Users\\rpratt\\Source\\Repos\\LogolsTeam4\\ClassLibrary1\\TwitchStream.Dal\\TwitchStream.Dal.csproj": {
+              "projectPath": "C:\\Users\\rpratt\\Source\\Repos\\LogolsTeam4\\ClassLibrary1\\TwitchStream.Dal\\TwitchStream.Dal.csproj"
             },
-            "C:\\Users\\rpratt\\Documents\\GitHub\\LogolsTeam4\\ClassLibrary1\\ClassLibrary1\\TwitchStream.Entities.csproj": {
-              "projectPath": "C:\\Users\\rpratt\\Documents\\GitHub\\LogolsTeam4\\ClassLibrary1\\ClassLibrary1\\TwitchStream.Entities.csproj"
+            "C:\\Users\\rpratt\\Source\\Repos\\LogolsTeam4\\ClassLibrary1\\ClassLibrary1\\TwitchStream.Entities.csproj": {
+              "projectPath": "C:\\Users\\rpratt\\Source\\Repos\\LogolsTeam4\\ClassLibrary1\\ClassLibrary1\\TwitchStream.Entities.csproj"
             }
           }
         }
