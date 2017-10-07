@@ -9,17 +9,43 @@ using TwitchStream.Dal;
 
 namespace WebApplication1.Controllers
 {
+    [Route("api/[controller]")]
     public class StreamerController : Controller
     {
-        public IActionResult Index()
+        StreamerListRepository _service;
+
+        public StreamerController()
         {
-            return View();
+            _service = new StreamerListRepository();
         }
 
-        public IActionResult Error()
+        // GET api/values
+
+
+        // GET api/values/5
+        [HttpGet("{id}")]
+        public TwitchStream.Entities.StreamerList Get(int id)
         {
-            ViewData["RequestId"] = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
-            return View();
+            return _service.Get(id);
+        }
+
+        [HttpGet("{channel}")]
+        public TwitchStream.Entities.StreamerList Get(string channel)
+        {
+            return _service.Get(channel);
+        }
+        // POST api/values
+        [HttpPost]
+        public void Post([FromBody]TwitchStream.Entities.StreamerList streamer)
+        {
+            _service.Insert(streamer);
+        }
+
+        // PUT api/values/5
+        [HttpPut]
+        public void Put([FromBody]TwitchStream.Entities.StreamerList streamer)
+        {
+            _service.Update(streamer);
         }
     }
 }
