@@ -22,12 +22,12 @@ namespace TwitchStream.Dal
             }
         }
 
-        public void Delete(UserSubscriptions sub)
+        public void Delete(int subscriptionId)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("team4.DeleteSubscription", sub, commandType: CommandType.StoredProcedure);
+                dbConnection.Execute("team4.DeleteSubscription", new { SubscriptionId = subscriptionId }, commandType: CommandType.StoredProcedure);
             }
         }
 

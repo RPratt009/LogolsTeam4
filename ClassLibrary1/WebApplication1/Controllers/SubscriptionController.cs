@@ -9,17 +9,33 @@ using TwitchStream.Dal;
 
 namespace WebApplication1.Controllers
 {
-    public class HomeController : Controller
+    [Route("api/{controller}")]
+    public class SubscriptionController : Controller
     {
-        public IActionResult Index()
+
+        UserSubscriptionsRepository userSubscriptionsRepository;
+
+        public SubscriptionController()
         {
-            return View();
+            userSubscriptionsRepository = new UserSubscriptionsRepository();
         }
 
-        public IActionResult Error()
+        [HttpPost]
+        public int Insert([FromBody]UserSubscriptions userSubscription)
         {
-            ViewData["RequestId"] = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
-            return View();
+            return userSubscriptionsRepository.Insert(userSubscription);
+        }
+
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+            userSubscriptionsRepository.Delete(id);
+        }
+
+        [HttpPost]
+        public void Update([FromBody]UserSubscriptions userSubscription)
+        {
+            userSubscriptionsRepository.Update(userSubscription);
         }
     }
 }
