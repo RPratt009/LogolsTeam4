@@ -46,7 +46,7 @@ namespace TwitchStream.Dal
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<UserLogin>("team4.GetUser", new { UserId = userId }, commandType: CommandType.StoredProcedure).First();
+                return dbConnection.Query<UserLogin>("team4.GetUser", new { UserLoginId = userId }, commandType: CommandType.StoredProcedure).First();
             }
         }
     }

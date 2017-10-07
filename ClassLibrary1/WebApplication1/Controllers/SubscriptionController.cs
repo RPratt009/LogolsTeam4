@@ -9,7 +9,7 @@ using TwitchStream.Dal;
 
 namespace WebApplication1.Controllers
 {
-    [Route("api/{controller}")]
+    [Route("api/[controller]")]
     public class SubscriptionController : Controller
     {
 
