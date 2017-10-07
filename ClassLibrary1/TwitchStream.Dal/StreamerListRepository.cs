@@ -1,16 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Linq;
 using TwitchStream.Entities;
 using Dapper;
 using Assessment.Entities;
-
-/*AddStreamer
-UpdateStreamerOnline
-UpdateStreamer
-GetStreamer
-GetStreamerWithChannel */
-
 
 namespace TwitchStream.Dal
 {
@@ -25,20 +17,20 @@ namespace TwitchStream.Dal
             }
         }
 
-        public void Update(StreamerList AddStreamer)
+        public void UpdateOnline(StreamerList updateStreamer)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("team4.UpdateStreamerOnline", AddStreamer, commandType: CommandType.StoredProcedure);
+                dbConnection.Execute("team4.UpdateStreamerOnline", updateStreamer, commandType: CommandType.StoredProcedure);
             }
         }
-        public void UpdateStreamer(StreamerList answer)
+        public void Update(StreamerList updateStreamer)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("team4.UpdateStreamer", answer, commandType: CommandType.StoredProcedure);
+                dbConnection.Execute("team4.UpdateStreamer", updateStreamer, commandType: CommandType.StoredProcedure);
             }
         }
 

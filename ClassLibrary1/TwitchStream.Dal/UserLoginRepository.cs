@@ -14,39 +14,39 @@ namespace TwitchStream.Dal
 {
     public class UserLoginRepository : Repository
     {
-        public int Insert(UserLogin user)
+        public int Insert(UserLogin userLogin)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<InsertID>("team4.AddUserLogin", user, commandType: CommandType.StoredProcedure).First().ID;
+                return dbConnection.Query<InsertID>("team4.AddUserLogin", userLogin, commandType: CommandType.StoredProcedure).First().ID;
             }
         }
 
-        public void Update(UserLogin user)
+        public void Update(UserLogin userLogin)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("team4.UpdateUserLogin", user, commandType: CommandType.StoredProcedure);
+                dbConnection.Execute("team4.UpdateUserLogin", userLogin, commandType: CommandType.StoredProcedure);
             }
         }
 
-        public UserLogin Get(int streamerId)
+        public UserLogin Get(string username, string password)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<UserLogin>("team4.GetUser", new { StreamerId = streamerId }, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                return dbConnection.Query<UserLogin>("team4.GetUserWithCredentials", new { Username = username, Pass = password }, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
 
-        public UserLogin Get(string userName, string password)
+        public UserLogin Get(int userId)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<UserLogin>("team4.GetUserWithCredentials", new { Username = userName, Pass = password }, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                return dbConnection.Query<UserLogin>("team4.GetUser", new { UserId = userId }, commandType: CommandType.StoredProcedure).First();
             }
         }
     }
