@@ -20,22 +20,16 @@ namespace WebApplication1.Controllers
             userSubscriptionsRepository = new UserSubscriptionsRepository();
         }
 
-        [HttpPost]
-        public int Insert([FromBody]UserSubscriptions userSubscription)
+        [HttpGet("{streamerId}")]
+        public int Insert(int streamerId)
         {
-            return userSubscriptionsRepository.Insert(userSubscription);
+            return userSubscriptionsRepository.Insert(streamerId);
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
             userSubscriptionsRepository.Delete(id);
-        }
-
-        [HttpPost]
-        public void Update([FromBody]UserSubscriptions userSubscription)
-        {
-            userSubscriptionsRepository.Update(userSubscription);
         }
     }
 }

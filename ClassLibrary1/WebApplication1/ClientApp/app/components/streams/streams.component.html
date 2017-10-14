@@ -1,0 +1,49 @@
+﻿<div id="wrapper">
+
+<h1>Streams Page</h1>
+
+<div id="new_channel_form">
+    <h2>Add New Channel</h2>
+
+    <label for="channel">Channel:</label>
+    <input id="channel" type="text" [(ngModel)]="streamer.channel" />
+    <button type="button" (click)="onAddClicked(streamer)">Submit</button>
+</div>
+
+<div id="streamer_list">
+    <h2>Streamers</h2>
+    <table class='table' *ngIf="streamerList">
+        <thead>
+            <tr>
+                <th>Channel</th>
+                <th>Subscribe</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let streamerInd of streamerList">
+                <td>{{ streamerInd.channel }}</td>
+                <td><button type="button" class="btn btn-primary btn-default" (click)="onSubscribe(streamerInd.streamerId)">Subscribe</button>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="subscription_list">
+    <h2>Your Subscriptions</h2>
+    <table class='table' *ngIf="subscribedToList">
+        <thead>
+            <tr>
+                <th>Channel</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let subscriptionInd of subscribedToList">
+                <td>{{ subscriptionInd.channel }}</td>
+                
+                <td><button type="button" class="btn btn-primary btn-default" (click)="onDeleteSubscription(subscriptionInd)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>

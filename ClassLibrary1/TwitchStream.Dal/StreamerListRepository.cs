@@ -3,6 +3,7 @@ using System.Linq;
 using TwitchStream.Entities;
 using Dapper;
 using Assessment.Entities;
+using System.Collections.Generic;
 
 namespace TwitchStream.Dal
 {
@@ -42,6 +43,25 @@ namespace TwitchStream.Dal
                 return dbConnection.Query<StreamerList>("team4.GetStreamer", new { StreamerId = streamerId }, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
+
+        public IEnumerable<StreamerList> GetAll()
+        {
+            using (IDbConnection dbConnection = Connection)
+            {
+                dbConnection.Open();
+                return dbConnection.Query<StreamerList>("team4.GetAllStreamers", commandType: CommandType.StoredProcedure);
+            }
+        }
+
+        public IEnumerable<StreamerList> GetSubscriptions(int userId)
+        {
+            using (IDbConnection dbConnection = Connection)
+            {
+                dbConnection.Open();
+                return dbConnection.Query<StreamerList>("team4.GetStreamersUserSubscribedTo", new { UserId = userId }, commandType: CommandType.StoredProcedure);
+            }
+        }
+
         public StreamerList Get(string channel)
         {
             using (IDbConnection dbConnection = Connection)

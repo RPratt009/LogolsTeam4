@@ -19,9 +19,6 @@ namespace WebApplication1.Controllers
             _service = new StreamerListRepository();
         }
 
-        // GET api/values
-
-
         // GET api/values/5
         [HttpGet("{id}")]
         public TwitchStream.Entities.StreamerList Get(int id)
@@ -34,18 +31,26 @@ namespace WebApplication1.Controllers
         {
             return _service.Get(channel);
         }
+
+        [HttpGet]
+        [Route("All")]
+        public IEnumerable<StreamerList> GetAll()
+        {
+            return _service.GetAll();
+        }
+
+        [HttpGet("{userId}")]
+        [Route("Subs")]
+        public IEnumerable<StreamerList> GetSubscriptions(int userId)
+        {
+            return _service.GetSubscriptions(userId);
+        }
+
         // POST api/values
         [HttpPost]
         public void Post([FromBody]TwitchStream.Entities.StreamerList streamer)
         {
             _service.Insert(streamer);
-        }
-
-        // PUT api/values/5
-        [HttpPut]
-        public void Put([FromBody]TwitchStream.Entities.StreamerList streamer)
-        {
-            _service.Update(streamer);
         }
     }
 }

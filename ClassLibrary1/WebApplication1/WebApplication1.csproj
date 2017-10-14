@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
-    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.3</TypeScriptToolsVersion>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
@@ -23,6 +23,17 @@
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary1\TwitchStream.Entities.csproj" />
     <ProjectReference Include="..\TwitchStream.Dal\TwitchStream.Dal.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\components\streams\streams.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\entities\userSubscriptions.ts" />
+    <TypeScriptCompile Include="ClientApp\app\entities\streamerList.ts" />
+    <TypeScriptCompile Include="ClientApp\app\entities\streamer.ts" />
+    <TypeScriptCompile Include="ClientApp\app\entities\userLogin.ts" />
+    <TypeScriptCompile Include="ClientApp\app\services\subscription.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\services\streamer.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\services\user.service.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

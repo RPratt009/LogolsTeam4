@@ -13,12 +13,17 @@ namespace TwitchStream.Dal
 {
     public class UserSubscriptionsRepository : Repository
     {
-        public int Insert(UserSubscriptions sub)
+        public int Insert(int streamerId)
         {
             using (IDbConnection dbConnection = Connection)
             {
+                UserSubscriptions sub = new UserSubscriptions
+                {
+                    StreamerId = streamerId,
+                    UserLoginId = 2
+                };
                 dbConnection.Open();
-                return dbConnection.Query<InsertID>("team4.AddSubscription", sub, commandType: CommandType.StoredProcedure).First().ID;
+                return dbConnection.Query<InsertID>("team4.AddSubscription", sub, commandType: CommandType.StoredProcedure)?.FirstOrDefault()?.ID ?? 0;
             }
         }
 
