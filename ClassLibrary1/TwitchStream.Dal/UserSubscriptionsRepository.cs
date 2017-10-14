@@ -3,6 +3,7 @@ using System.Data;
 using System.Linq;
 using TwitchStream.Entities;
 using Dapper;
+using Assessment.Entities;
 
 /*AddSubscription
 DeleteSubscription
@@ -12,21 +13,26 @@ namespace TwitchStream.Dal
 {
     public class UserSubscriptionsRepository : Repository
     {
-        public int Insert(UserSubscriptions sub)
+        public int Insert(int streamerId)
         {
             using (IDbConnection dbConnection = Connection)
             {
+                UserSubscriptions sub = new UserSubscriptions
+                {
+                    StreamerId = streamerId,
+                    UserLoginId = 2
+                };
                 dbConnection.Open();
-                return dbConnection.Query<InsertID>("team4.AddSubscription", sub, commandType: CommandType.StoredProcedure).First().ID;
+                return dbConnection.Query<InsertID>("team4.AddSubscription", sub, commandType: CommandType.StoredProcedure)?.FirstOrDefault()?.ID ?? 0;
             }
         }
 
-        public void Delete(UserSubscriptions sub)
+        public void Delete(int subscriptionId)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("team4.DeleteSubscription", sub, commandType: CommandType.StoredProcedure);
+                dbConnection.Execute("team4.DeleteSubscription", new { SubscriptionId = subscriptionId }, commandType: CommandType.StoredProcedure);
             }
         }
 

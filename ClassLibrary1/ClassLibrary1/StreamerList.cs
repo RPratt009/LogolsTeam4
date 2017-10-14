@@ -9,6 +9,6 @@ namespace TwitchStream.Entities
     public int StreamerId { get;set;}
     public string Streamer { get; set; }
     public string Channel { get;set;}
-    ublic bool Online{ get;set;}
+    public bool Online{ get;set;}
     }
 }
